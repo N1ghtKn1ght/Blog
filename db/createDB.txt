@@ -1,0 +1,20 @@
+CREATE TABLE post
+(
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userId int NOT NULL,
+    title varchar(50) NOT NULL,
+    body text NOT NULL
+
+    INDEX(userId)
+);
+
+CREATE TABLE comment
+(
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    postId int NOT NULL,
+    name varchar(100) NOT null,
+    email varchar(100) NOT null,
+    body text NOT NULL,
+
+    FOREIGN KEY (postId) REFERENCES post(id)
+);
